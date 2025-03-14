@@ -9,6 +9,7 @@ import tensorflow as tf
 from tensorflow.keras.models import load_model
 from tensorflow.keras.layers import Layer
 import logging
+import os
 
 app = Flask(__name__)
 CORS(app, resources={r"/predict_pet": {"origins": "*"}})
@@ -111,5 +112,7 @@ def predict_pet():
         logger.error("Error processing the image: %s", str(e))
         return jsonify({"error": f"Error processing the image: {str(e)}"}), 500
 
+
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5002, debug=True)
+    port = int(os.environ.get('PORT', 5002))
+    app.run(host='0.0.0.0', port=port, debug=True)
