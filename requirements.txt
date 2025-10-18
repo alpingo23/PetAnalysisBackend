@@ -3,5 +3,5 @@ flask-cors==5.0.1
 opencv-python-headless==4.11.0.86
 numpy==1.26.4
 pillow==11.1.0
-tensorflow-cpu==2.19.0
+tensorflow-cpu==2.18.0
 gunicorn==20.1.0
